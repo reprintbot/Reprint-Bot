@@ -1,13 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import Login from './pages/login';
+import Splash from './pages/splash';
+import Home from './pages/home';
+import Profile from './pages/profile';
+import Settings from './pages/settings';
+import History from './pages/history';
 
-export default function App() {
+export default function App(){
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Home/>
+    /*<Splash />
+    <Login />
+    <Profile />
+    <Settings />
+    <History />*/
   );
 }
 
