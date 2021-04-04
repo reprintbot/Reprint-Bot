@@ -10,7 +10,7 @@ import History from './pages/history';
 
 export default function App(){
   return (
-    <Home/>
+    <History/>
     /*<Splash />
     <Login />
     <Profile />
