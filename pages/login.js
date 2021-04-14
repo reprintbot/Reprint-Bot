@@ -1,61 +1,64 @@
-import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import Home from './home';
+import * as React from 'react';
+import { Button, View, Text, SafeAreaView, TextInput, StyleSheet} from 'react-native';
 
-export default class App extends React.Component {
-  state={
-    email:"",
-    password:""
-  }
-  render(){
-    return (
+const Login = ({ navigation }) => {
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
         <Text style={styles.logo}>Reprint Bot</Text>
         <View style={styles.inputView} >
-          <TextInput  
+          <TextInput
             style={styles.inputText}
-            placeholder="Email..." 
+            placeholder="Email"
             placeholderTextColor="#003f5c"
             onChangeText={text => this.setState({email:text})}/>
         </View>
         <View style={styles.inputView} >
-          <TextInput  
+          <TextInput
             secureTextEntry
-            style={styles.inputText}
-            placeholder="Password..." 
+            placeholder="Password"
             placeholderTextColor="#003f5c"
             onChangeText={text => this.setState({password:text})}/>
         </View>
-        <TouchableOpacity>
-          <Text style={styles.forgot}>Forgot Password?</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.loginBtn}>
-          <Text style={styles.loginText}>LOGIN</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={styles.loginText}>Sign Up</Text>
-        </TouchableOpacity>
+        <Button
+            onPress={() => navigation.navigate('Home')}
+            title="Forgot Password?"
+            color="#57068c"
+        />
+        <Button
+            onPress={() => navigation.navigate('Home')}
+            title="LOGIN"
+            color="#151515"
+        />
+        <Button
+            style={styles.button}
+            onPress={() => navigation.navigate('Home')}
+            title="Sign up"
+            color="#57068c"
+        />
       </View>
-    );
-  }
+    </SafeAreaView>
+  );
 }
 
+export default Login;
+
 const styles = StyleSheet.create({
-  container: {
+  container:{
     flex: 1,
-    backgroundColor: '#003f5c',
+    backgroundColor: '#57068c',
     alignItems: 'center',
     justifyContent: 'center',
   },
   logo:{
     fontWeight:"bold",
     fontSize:50,
-    color:"#b087e6",
+    color:"#ffffff",
     marginBottom:40
   },
   inputView:{
     width:"80%",
-    backgroundColor:"#465881",
+    backgroundColor:"#ffffff",
     borderRadius:25,
     height:50,
     marginBottom:20,
@@ -64,23 +67,6 @@ const styles = StyleSheet.create({
   },
   inputText:{
     height:50,
-    color:"white"
-  },
-  forgot:{
-    color:"white",
-    fontSize:11
-  },
-  loginBtn:{
-    width:"80%",
-    backgroundColor:"#b087e6",
-    borderRadius:25,
-    height:50,
-    alignItems:"center",
-    justifyContent:"center",
-    marginTop:40,
-    marginBottom:10
-  },
-  loginText:{
-    color:"white"
+    color:"#ffffff"
   }
 });

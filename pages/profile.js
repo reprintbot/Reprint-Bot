@@ -1,54 +1,56 @@
-import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
-import logo from './assets/logo.png';
+import * as React from 'react';
+import { Button, View, Text, SafeAreaView, StyleSheet } from 'react-native';
 
+const Account = ({ route, navigation }) => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={{ flex: 1, padding: 16 }}>
+        <View
+          style={{
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Text
+            style={{
+              fontSize: 25,
+              textAlign: 'center',
+              marginBottom: 16
+            }}>
+          </Text>
+          <Button
+            onPress={() => navigation.navigate('Home')}
+            title="Go to the Home Page"
+            color="#57068c"
 
-export default class App extends React.Component {
-  state={
-    email:"",
-    password:""
-  }
-  render(){
-    return (
-      <View style={styles.container}>
-      <TouchableOpacity style={styles.BtnHome}>
-          <Text style={styles.loginText}>Home</Text>
-        </TouchableOpacity>
-      <Text style = {styles.Title}>Profile</Text>
+          />
+          <Button
+            title="LOGOUT"
+            onPress={() =>
+              navigation.reset({
+                index: 0,
+                routes: [
+                  {
+                    name: 'Login',
+                  },
+                ],
+              })
+            }
+            color="#57068c"
+          />
+        </View>
       </View>
-    );
-  }
+    </SafeAreaView>
+  );
 }
 
+export default Account;
+
 const styles = StyleSheet.create({
-  container: {
+  container:{
     flex: 1,
-    backgroundColor: '#dafff7',
-    justifyContent: 'flex-start',
-  },
-  Title: {
-    textAlign: "center",
-    fontWeight:"bold",
-    fontSize:50,
-    color:"#b087e6"
-  },
-  Btn:{
-    width:"60%",
-    backgroundColor:"#b087e6",
-    borderRadius:20,
-    height:50,
-    alignItems:"center",
-    justifyContent:"center",
-    marginTop:10,
-    marginBottom:10
-  },
-  BtnHome:{
-    width:60,
-    height:50,
-    backgroundColor:"#b087e6",
-    borderRadius:20,
-    margin:20,
+    backgroundColor: '#ffffff',
+    alignItems: 'center',
     justifyContent: 'center',
-    textAlign: 'center'
   }
 });
